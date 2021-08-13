@@ -89,8 +89,7 @@ try:
     sheetname.cell(row=20, column=3).value = 'Lendica Access'
     sheetname.cell(row=21,column=3).value = vendor_key
     sheetname.cell(row=22, column=3).value = user_api_key
-
-    print('wenr in')
+    print('went in')
 
     for i in sheetnames:
         df1 = pd.read_excel(xls, i)
