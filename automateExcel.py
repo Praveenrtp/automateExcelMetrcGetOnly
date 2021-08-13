@@ -4,7 +4,7 @@ import numpy as np
 import openpyxl
 import json
 import sys
-from urllib.error import HTTPError
+
 
 try:
     vendor_key = 'KXvRFsRK2OnTg6M63eXMFvmgCD235ultHrYfaeySDfOtAts5'
