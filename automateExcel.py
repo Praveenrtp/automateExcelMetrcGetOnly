@@ -12,7 +12,7 @@ try:
     sandbox_url= 'https://sandbox-api-ca.metrc.com/'
     params = {'licenseNumber': 'C12-1000003-LIC', 'lastModifiedStart': '2021-08-04'}
     licenseNumber = 'C12-1000003-LIC'
-    Name = 'Cannabis - Microbusiness License'
+    name = 'Cannabis - Microbusiness License'
 
     ignore = 'The follwing may Not be supported in the state you are testing for. Pleae refer to the The Metrc Web API Document page that can be found: https://api-XX.metrc.com/Documentation#getting-started <Change the XX for the abbreviated state for the corresponding page>'
     ignore_1 = 'GET /transfers/v1/{id}/deliveries                                                    This ID number is the same as the ID number at the top of a GET /transfers/v1/incoming, outgoing or rejected'
@@ -191,7 +191,7 @@ try:
                     sheetname.cell(row=index+2, column=8).value = r.text
 
                 if i == 'Admin':
-                    sheetname.cell(row=index+2,column=5).value = Name
+                    sheetname.cell(row=index+2,column=5).value = name
                     sheetname.cell(row=index+2,column=6).value = url
                     sheetname.cell(row=index+2, column=7).value = r.text
                 else:              
