@@ -117,11 +117,10 @@ try:
                     dd = multipleReplace(d, str(response_val))
                     url=sandbox_url+'{}'.format(dd)
                     r = requests.get(url, auth=(vendor_key, user_api_key), params = params)
-                    sheetname.cell(row=index+2, column=8).value = r.text
                 else:
                     url=sandbox_url+'{}'.format(d)
                     r = requests.get(url, auth=(vendor_key, user_api_key), params = params)
-                    sheetname.cell(row=index+2, column=8).value = r.text
+                    
 
                 if 'labtests' in value[i] :
                     params = {'licenseNumber': 'C12-1000003-LIC', 'lastModifiedStart': '2021-08-04'}
@@ -132,12 +131,12 @@ try:
                     req_params = {'licenseNumber': 'C12-1000003-LIC','packageId': val}
                     new_url = sandbox_url + 'labtests/v1/results'
                     r = requests.get(new_url, auth=(vendor_key, user_api_key), params = req_params)
-                    sheetname.cell(row=index+2, column=8).value = r.text
+                    
 
                 if 'sales' in value[i] :
                     new_url = sandbox_url + 'sales/v1/receipts/active'
                     r = requests.get(new_url, auth=(vendor_key, user_api_key), params = params)
-                    sheetname.cell(row=index+2, column=8).value = r.text
+                    
 
                 if 'GET /sales/v1/receipts/{id}' in value[i]:
                     sheetname.cell(row=index+2,column=2).value = r.status_code
@@ -164,7 +163,6 @@ try:
                     replace = multipleReplace(dd, str(val))
                     new_url = sandbox_url+'{}'.format(replace)
                     r = requests.get(new_url, auth=(vendor_key, user_api_key))
-                    sheetname.cell(row=index+2, column=8).value = r.text
 
                 if ignore_2 in value[i]:
                     url = sandbox_url + 'transfers/v1/rejected'
@@ -176,7 +174,6 @@ try:
                     replace = multipleReplace(dd, str(val))
                     new_url=sandbox_url+'{}'.format(replace)
                     r = requests.get(new_url, auth=(vendor_key, user_api_key))
-                    sheetname.cell(row=index+2, column=8).value = r.text
 
                 if ignore_3 in value[i]:
                     url = sandbox_url + 'transfers/v1/rejected'
@@ -188,7 +185,6 @@ try:
                     replace = multipleReplace(dd, str(val))
                     new_url=sandbox_url+'{}'.format(replace)
                     r = requests.get(new_url, auth=(vendor_key, user_api_key))
-                    sheetname.cell(row=index+2, column=8).value = r.text
 
                 if i == 'Admin':
                     sheetname.cell(row=index+2,column=5).value = name
@@ -203,8 +199,8 @@ try:
                     sheetname.cell(row=index+2, column=4).value = response_val
                 else :  
                     sheetname.cell(row=index+2, column=4).value = 'N/A'
-                    sheetname.cell(row=index+2, column=8).value = r.text
-
+                    
+                sheetname.cell(row=index+2, column=8).value = r.text
                 sheetname.cell(row=index+2,column=2).value = r.status_code
                 sheetname.cell(row=index+2, column=3).value = licenseNumber
                 source.save('GET_Only_Evaluation_2020_V1001.xlsx')
